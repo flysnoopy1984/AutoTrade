@@ -7,3 +7,4 @@ G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\GenerateResource.read.1.t
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\GenerateResource.write.1.tlog
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.exe
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.pdb
+G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.ShowInfoForm.resources
