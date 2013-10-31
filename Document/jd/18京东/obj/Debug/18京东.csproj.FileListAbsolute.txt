@@ -1,0 +1,9 @@
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\bin\Debug\18京东.exe.config
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\bin\Debug\18京东.exe
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\bin\Debug\18京东.pdb
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\18京东.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\_18京东.Form1.resources
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\_18京东.Properties.Resources.resources
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\18京东.csproj.GenerateResource.Cache
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\18京东.exe
+D:\Documents\Visual Studio 2012\Projects\###实例练习###\18京东\obj\Debug\18京东.pdb

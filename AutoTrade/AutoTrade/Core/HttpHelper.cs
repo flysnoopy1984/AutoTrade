@@ -420,7 +420,8 @@ namespace AutoTrade.Core
             // 验证证书
             SetCer(item);
             //设置Header参数
-            if (item.Header != null && item.Header.Count > 0) foreach (string key in item.Header.AllKeys)
+            if (item.Header != null && item.Header.Count > 0) 
+                foreach (string key in item.Header.AllKeys)
                 {
                     request.Headers.Add(key, item.Header[key]);
                 }
