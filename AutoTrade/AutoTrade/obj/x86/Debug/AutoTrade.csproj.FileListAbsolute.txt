@@ -9,3 +9,12 @@ G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.exe
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.pdb
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.ShowInfoForm.resources
 G:\Project\AutoTrade\AutoTrade\AutoTrade\bin\Debug\AutoTrade.exe.config
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.exe
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.pdb
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.MainForm.resources
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.Properties.Resources.resources
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.ShowInfoForm.resources
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.csproj.GenerateResource.Cache
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\bin\Debug\AutoTrade.exe
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\bin\Debug\AutoTrade.pdb
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.csprojResolveAssemblyReference.cache
