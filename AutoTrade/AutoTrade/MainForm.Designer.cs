@@ -33,6 +33,7 @@
             this.tb_Msg = new System.Windows.Forms.TextBox();
             this.bn_OrderList = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.myBrowser1 = new AutoTrade.MyBrowser();
             this.SuspendLayout();
             // 
             // bn_Login
@@ -64,7 +65,7 @@
             this.tb_Msg.Multiline = true;
             this.tb_Msg.Name = "tb_Msg";
             this.tb_Msg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tb_Msg.Size = new System.Drawing.Size(715, 270);
+            this.tb_Msg.Size = new System.Drawing.Size(1118, 270);
             this.tb_Msg.TabIndex = 2;
             // 
             // bn_OrderList
@@ -79,18 +80,28 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(486, 488);
+            this.button2.Location = new System.Drawing.Point(300, 292);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // myBrowser1
+            // 
+            this.myBrowser1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.myBrowser1.Location = new System.Drawing.Point(0, 368);
+            this.myBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.myBrowser1.Name = "myBrowser1";
+            this.myBrowser1.Size = new System.Drawing.Size(1118, 367);
+            this.myBrowser1.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 491);
+            this.ClientSize = new System.Drawing.Size(1118, 735);
+            this.Controls.Add(this.myBrowser1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.bn_OrderList);
             this.Controls.Add(this.tb_Msg);
@@ -110,6 +121,7 @@
         private System.Windows.Forms.TextBox tb_Msg;
         private System.Windows.Forms.Button bn_OrderList;
         private System.Windows.Forms.Button button2;
+        private MyBrowser myBrowser1;
     }
 }
 

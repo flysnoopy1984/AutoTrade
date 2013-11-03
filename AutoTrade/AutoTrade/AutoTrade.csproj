@@ -50,11 +50,18 @@
   <ItemGroup>
     <Compile Include="Core\EUser.cs" />
     <Compile Include="Core\HttpHelper.cs" />
+    <Compile Include="Core\MyHttp.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyBrowser.Designer.cs">
+      <DependentUpon>MyBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

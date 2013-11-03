@@ -38,6 +38,7 @@ namespace AutoTrade
             _ShowInfo = new ShowInfoForm();
 
             CheckForIllegalCrossThreadCalls = false;//为false可以跨线程调用windows控件     
+            NewWeb();
 
             _thInit = new Thread(new ThreadStart(InitNet));
             _thInit.Start();
@@ -60,19 +61,36 @@ namespace AutoTrade
          //   tb_Msg.AppendText(result.Html);
         }
 
+
+
+        private void NewWeb()
+        {
+            this.myBrowser1.Url = new Uri("http://www.yhd.com/1/");
+         
+            
+
+        }
+
+        private void cookie()
+        {
+
+        }
+
+
      
      
 
         private void button1_Click(object sender, EventArgs e)
         {
-          int start = 0;  
-          int end = 0;
-          String dataStr = "\u8bf7\u5237\u65b0\u9875\u9762\u540e\u91cd\u65b0\u63d0\u4ea4";
+          //int start = 0;  
+          //int end = 0;
+          //String dataStr = "\u8bf7\u5237\u65b0\u9875\u9762\u540e\u91cd\u65b0\u63d0\u4ea4";
 
-          String s = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
-          String s2 = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
+          //String s = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
+          //String s2 = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
 
-          _ShowInfo.ShowInfo(dataStr);
+            string cookie = this.myBrowser1.Document.Cookie;
+            _ShowInfo.ShowInfo(cookie);
             
         }
 
