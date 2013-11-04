@@ -11,6 +11,8 @@ using System.IO;
 using System.Threading;
 using AutoTrade.Core;
 using System.Web;
+using mshtml;
+using System.Diagnostics;
 
 namespace AutoTrade
 {
@@ -40,24 +42,24 @@ namespace AutoTrade
             CheckForIllegalCrossThreadCalls = false;//为false可以跨线程调用windows控件     
             NewWeb();
 
-            _thInit = new Thread(new ThreadStart(InitNet));
-            _thInit.Start();
+            //_thInit = new Thread(new ThreadStart(InitNet));
+            //_thInit.Start();
         }
 
 
         private void InitNet()
         {
-            HttpItem item = new HttpItem();
-            HttpHelper helper = new HttpHelper();
-            HttpResult result = new HttpResult();
+            //HttpItem item = new HttpItem();
+            //HttpHelper helper = new HttpHelper();
+            //HttpResult result = new HttpResult();
 
-            item.URL = "https://passport.yhd.com/passport/login_input.do";
+            //item.URL = "https://passport.yhd.com/passport/login_input.do";
             
 
-            result = helper.GetHtml(item);
-            _Cookies = result.Cookie;
+            //result = helper.GetHtml(item);
+            //_Cookies = result.Cookie;
 
-            tb_Msg.AppendText(_Cookies);
+            //tb_Msg.AppendText(_Cookies);
          //   tb_Msg.AppendText(result.Html);
         }
 
@@ -65,32 +67,84 @@ namespace AutoTrade
 
         private void NewWeb()
         {
-            this.myBrowser1.Url = new Uri("http://www.yhd.com/1/");
-         
-            
-
+            this.myBrowser1.Url = new Uri("https://passport.jd.com/new/login.aspx?ReturnUrl=http%3A%2F%2Fwww.jd.com%2Fbigimage.aspx%3Fid%3D1015445051");
+            myBrowser1.ScriptErrorsSuppressed = true;
+            myBrowser1.LocationChanged += new EventHandler(myBrowser1_LocationChanged);
+        
+            myBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(myBrowser1_DocumentCompleted);
         }
 
-        private void cookie()
+        void myBrowser1_LocationChanged(object sender, EventArgs e)
         {
-
+            Debug.WriteLine(myBrowser1.Url);
         }
 
+        void myBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            Debug.WriteLine(e.Url);
+            Uri url = e.Url;
+            if (url.OriginalString == "http://www.jd.com/bigimage.aspx?id=1015445051")
+            {
+                this.myBrowser1.Document.All["InitCartUrl"].InvokeMember("click");
+            }
+            if (url.AbsolutePath == "/cart/addToCart.html")
+            {
+                
+                this.myBrowser1.Navigate("http://cart.jd.com/cart/cart.html");
+            }
+            if (url.AbsolutePath == "/cart/cart.html")
+            {
 
+
+                // this.myBrowser1.Document.All["toSettlement"].InvokeMember("click");
+            }
+            if (url.OriginalString == "http://ckmap.mediav.com/b?type=10")
+            {
+                foreach (HtmlElement link in myBrowser1.Document.Links)
+                {
+                    Debug.WriteLine(link.GetAttribute("id"));
+                    if (link.GetAttribute("id") == "toSettlement")
+                    {
+                        link.InvokeMember("click");
+                    }
+                }
+            }
+            if (url.AbsolutePath == "/order/getOrderInfo.action" && url.Host == "trade.jd.com")
+            {
+                ////  myBrowser1.Document.All["consignee_name"].InnerText = "aaa";
+                //HtmlElementCollection cols =   myBrowser1.Document.GetElementsByTagName("input");
+                //foreach (HtmlElement obj in cols)
+                //{
+                //    Debug.WriteLine(obj.InnerHtml);
+                //}
+
+               // HTMLDocument doc = myBrowser1.Document.DomDocument as HTMLDocument;
+               // IHTMLElement ele = doc.getElementById("consignee-form");
+               //HTMLInputElementClass name = doc.all.item("consignee-form", 0) as HTMLInputElementClass;
+               // if (name != null)
+               //     name.value = "aaa";
+
+            }
+            if (url.OriginalString == "http://localhost:53354/")
+            {
+                HtmlElement ele = myBrowser1.Document.CreateElement("script");
+                IHTMLScriptElement jse = (IHTMLScriptElement)ele.DomElement;
+
+                jse.text = "function sayHello() { alert('hello') }";
+                myBrowser1.Document.Body.AppendChild(ele);
+                myBrowser1.Document.InvokeScript("sayHello");
+                myBrowser1.Document.All["btest"].InvokeMember("click");      
+            }  
+            
+        }
+
+      
      
      
 
         private void button1_Click(object sender, EventArgs e)
         {
-          //int start = 0;  
-          //int end = 0;
-          //String dataStr = "\u8bf7\u5237\u65b0\u9875\u9762\u540e\u91cd\u65b0\u63d0\u4ea4";
-
-          //String s = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
-          //String s2 = "\u8bf7\u60a8\u542f\u7528\u6d4f\u89c8\u5668Cookie\u529f\u80fd\u6216\u66f4\u6362\u6d4f\u89c8\u5668\u3002";
-
-            string cookie = this.myBrowser1.Document.Cookie;
-            _ShowInfo.ShowInfo(cookie);
+            myBrowser1.Print();
             
         }
 
@@ -292,6 +346,54 @@ namespace AutoTrade
             }
             return result;
 
+        }
+
+      
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                HTMLDocument doc = myBrowser1.Document.DomDocument as HTMLDocument;
+
+                System.Windows.Forms.HtmlDocument document = this.myBrowser1.Document;
+
+                HTMLInputElementClass input = doc.all.item("loginname", 0) as HTMLInputElementClass;
+                input.value = "flysnoopy1984";
+                
+                HTMLInputElementClass pwd = doc.all.item("nloginpwd", 0) as HTMLInputElementClass;
+                pwd.value = "Edifier1984";
+
+              //  myBrowser1.Document.InvokeScript("loginsubmit");
+                object obj = this.myBrowser1.Document.All["loginsubmit"].InvokeMember("click");
+
+              //  HTMLFormElementClass form = doc.all.item("formlogin", 0) as HTMLFormElementClass;
+              //  form.submit();
+                //myBrowser1.Refresh();
+              
+                //this.myBrowser1.Navigate("http://item.jd.com/388340.html");
+                
+              
+              
+            
+
+                //myBrowser1.Refresh();
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.myBrowser1.Navigate("http://localhost:53354/");
+         
+           
         }
 
       

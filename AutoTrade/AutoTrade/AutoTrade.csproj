@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -51,6 +54,12 @@
     <Compile Include="Core\EUser.cs" />
     <Compile Include="Core\HttpHelper.cs" />
     <Compile Include="Core\MyHttp.cs" />
+    <Compile Include="JDMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JDMain.Designer.cs">
+      <DependentUpon>JDMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +80,9 @@
     <Compile Include="ShowInfoForm.Designer.cs">
       <DependentUpon>ShowInfoForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="JDMain.resx">
+      <DependentUpon>JDMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

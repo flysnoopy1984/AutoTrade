@@ -1,0 +1,5 @@
+G:\Project\AutoTrade\AutoTrade\TestWeb\bin\TestWeb.dll
+G:\Project\AutoTrade\AutoTrade\TestWeb\bin\TestWeb.pdb
+G:\Project\AutoTrade\AutoTrade\TestWeb\obj\Debug\ResolveAssemblyReference.cache
+G:\Project\AutoTrade\AutoTrade\TestWeb\obj\Debug\TestWeb.dll
+G:\Project\AutoTrade\AutoTrade\TestWeb\obj\Debug\TestWeb.pdb
