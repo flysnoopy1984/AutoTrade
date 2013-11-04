@@ -17,3 +17,4 @@ H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTr
 H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\bin\Debug\AutoTrade.exe
 H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\bin\Debug\AutoTrade.pdb
 G:\Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.JDMain.resources
+H:\Projects\OutSource_Project\AutoTrade\AutoTrade\AutoTrade\obj\x86\Debug\AutoTrade.JDMain.resources

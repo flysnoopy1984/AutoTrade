@@ -67,7 +67,7 @@ namespace AutoTrade
 
         private void NewWeb()
         {
-            this.myBrowser1.Url = new Uri("https://passport.jd.com/new/login.aspx?ReturnUrl=http%3A%2F%2Fwww.jd.com%2Fbigimage.aspx%3Fid%3D1015445051");
+            this.myBrowser1.Url = new Uri("http://www.baidu.com");
             myBrowser1.ScriptErrorsSuppressed = true;
             myBrowser1.LocationChanged += new EventHandler(myBrowser1_LocationChanged);
         
@@ -83,6 +83,10 @@ namespace AutoTrade
         {
             Debug.WriteLine(e.Url);
             Uri url = e.Url;
+            if (url.OriginalString.Contains("https://passport.jd.com/new/login.aspx"))
+            {
+                this.JDLogin();
+            }
             if (url.OriginalString == "http://www.jd.com/bigimage.aspx?id=1015445051")
             {
                 this.myBrowser1.Document.All["InitCartUrl"].InvokeMember("click");
@@ -112,7 +116,8 @@ namespace AutoTrade
             if (url.AbsolutePath == "/order/getOrderInfo.action" && url.Host == "trade.jd.com")
             {
                 ////  myBrowser1.Document.All["consignee_name"].InnerText = "aaa";
-                //HtmlElementCollection cols =   myBrowser1.Document.GetElementsByTagName("input");
+                HtmlElement obj = myBrowser1.Document.GetElementById("consignee");
+                Debug.WriteLine(obj.InnerHtml);
                 //foreach (HtmlElement obj in cols)
                 //{
                 //    Debug.WriteLine(obj.InnerHtml);
@@ -144,34 +149,50 @@ namespace AutoTrade
 
         private void button1_Click(object sender, EventArgs e)
         {
-            myBrowser1.Print();
+           
             
+        }
+
+        private void JDLogin()
+        {
+            try
+            {
+                HTMLDocument doc = myBrowser1.Document.DomDocument as HTMLDocument;
+
+                System.Windows.Forms.HtmlDocument document = this.myBrowser1.Document;
+
+                HTMLInputElementClass input = doc.all.item("loginname", 0) as HTMLInputElementClass;
+                input.value = "darkhome";
+
+                HTMLInputElementClass pwd = doc.all.item("nloginpwd", 0) as HTMLInputElementClass;
+                pwd.value = "edifier";
+
+                //  myBrowser1.Document.InvokeScript("loginsubmit");
+                object obj = this.myBrowser1.Document.All["loginsubmit"].InvokeMember("click");
+
+                //  HTMLFormElementClass form = doc.all.item("formlogin", 0) as HTMLFormElementClass;
+                //  form.submit();
+                //myBrowser1.Refresh();
+
+                //this.myBrowser1.Navigate("http://item.jd.com/388340.html");
+
+
+
+
+
+                //myBrowser1.Refresh();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void bn_Login_Click(object sender, EventArgs e)
         {
-            _ShowInfo.Show();
-            _thShow = new Thread(new ThreadStart(Login));
-            _thShow.Start();
-            //string loginUrl = "https://passport.jd.com/new/login.aspx";
-            //Get(loginUrl, null);
-
-            //string loginRefererUrl = "http://passport.jd.com/uc/login?ltype=logout";
-            //string loginServiceUrl = "http://passport.jd.com/uc/loginService";
-            //var s = Post(loginServiceUrl,
-            //   new Dictionary<string, string>(){
-            //    {"uuid",Convert.ToString(Guid.NewGuid())},
-            //    {"loginname",HttpUtility.UrlEncode("flysnoopy1984")},
-            //    {"nloginpwd",HttpUtility.UrlEncode("Edifier1984")},
-            //    {"loginpwd",HttpUtility.UrlEncode("Edifier1984")},
-            //    {"machineNet","machineCpu"},
-            //    {"machineDisk",""},
-            //    {"authcode",""}}, loginRefererUrl);
-
-            //var dic = new Dictionary<string, string>();
-            //s = Get("http://order.jd.com/center/list.action?r=635190049375727500", null, fun: a => dic = a);
-
-            //_ShowInfo.ShowInfo(s);
+            this.myBrowser1.Navigate("https://passport.jd.com/new/login.aspx?ReturnUrl=http%3A%2F%2Fwww.jd.com%2Fbigimage.aspx%3Fid%3D1015445051");
         }
 
 
@@ -353,39 +374,7 @@ namespace AutoTrade
         private void button2_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                HTMLDocument doc = myBrowser1.Document.DomDocument as HTMLDocument;
-
-                System.Windows.Forms.HtmlDocument document = this.myBrowser1.Document;
-
-                HTMLInputElementClass input = doc.all.item("loginname", 0) as HTMLInputElementClass;
-                input.value = "flysnoopy1984";
-                
-                HTMLInputElementClass pwd = doc.all.item("nloginpwd", 0) as HTMLInputElementClass;
-                pwd.value = "Edifier1984";
-
-              //  myBrowser1.Document.InvokeScript("loginsubmit");
-                object obj = this.myBrowser1.Document.All["loginsubmit"].InvokeMember("click");
-
-              //  HTMLFormElementClass form = doc.all.item("formlogin", 0) as HTMLFormElementClass;
-              //  form.submit();
-                //myBrowser1.Refresh();
-              
-                //this.myBrowser1.Navigate("http://item.jd.com/388340.html");
-                
-              
-              
-            
-
-                //myBrowser1.Refresh();
-                
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
 
         }
 
